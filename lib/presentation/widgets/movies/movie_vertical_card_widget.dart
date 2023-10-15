@@ -21,8 +21,8 @@ class MovieVerticalCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 240,
-              width: 170,
+              height: 240,  // TODO: Refactor this
+              width: 170,   // and this
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(

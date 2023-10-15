@@ -17,7 +17,7 @@ class MoviesHorizontalListView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 400,
+      height: 406,
       child: Column(
         children: [
           SectionHeaderWidget(title: title, subtitle: subtitle),
@@ -25,6 +25,7 @@ class MoviesHorizontalListView extends StatelessWidget {
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: movies.length,
+              physics: const BouncingScrollPhysics(),
               itemBuilder: (context, index) {
                 final movie = movies[index];
                 return MovieVerticalCardWidget(movie: movie);

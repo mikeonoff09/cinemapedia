@@ -13,7 +13,7 @@ class SectionHeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
-    final colors = Theme.of(context).colorScheme;
+    // final colors = Theme.of(context).colorScheme;
     return Padding(
       padding: const EdgeInsets.symmetric(
         horizontal: 8.0,
@@ -26,22 +26,27 @@ class SectionHeaderWidget extends StatelessWidget {
             style: textTheme.titleLarge,
           ),
           const Spacer(),
-          ClipRRect(
-            borderRadius: BorderRadius.circular(20),
-            child: Container(
-              color: colors.secondary,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12.0,
-                  vertical: 4,
-                ),
-                child: Text(
-                  subtitle,
-                  style: TextStyle(color: colors.onSecondary),
-                ),
-              ),
-            ),
-          )
+          FilledButton.tonal(
+            style: const ButtonStyle(visualDensity: VisualDensity.compact),
+            onPressed: () {},
+            child: Text(subtitle),
+          ),
+          // ClipRRect(
+          //   borderRadius: BorderRadius.circular(20),
+          //   child: Container(
+          //     color: colors.secondary,
+          //     child: Padding(
+          //       padding: const EdgeInsets.symmetric(
+          //         horizontal: 12.0,
+          //         vertical: 4,
+          //       ),
+          //       child: Text(
+          //         subtitle,
+          //         style: TextStyle(color: colors.onSecondary),
+          //       ),
+          //     ),
+          //   ),
+          // )
         ],
       ),
     );
