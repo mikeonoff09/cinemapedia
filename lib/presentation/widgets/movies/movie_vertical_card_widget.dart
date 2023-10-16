@@ -1,7 +1,7 @@
 import 'package:animate_do/animate_do.dart';
+import 'package:cinemapedia/config/helpers/number_formater.dart';
 import 'package:cinemapedia/domain/entities/entities.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
 
 class MovieVerticalCardWidget extends StatelessWidget {
   const MovieVerticalCardWidget({
@@ -13,6 +13,7 @@ class MovieVerticalCardWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textStyles = Theme.of(context).textTheme;
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: SizedBox(
@@ -21,8 +22,8 @@ class MovieVerticalCardWidget extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(
-              height: 240,  // TODO: Refactor this
-              width: 170,   // and this
+              height: 240, // TODO: Refactor this
+              width: 170, // and this
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
                 child: Image.network(
@@ -42,14 +43,7 @@ class MovieVerticalCardWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(height: 8),
-            Text(
-              movie.title,
-              maxLines: 3,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
+            Text(movie.title, maxLines: 2, style: textStyles.titleSmall),
             Row(
               children: [
                 Icon(
@@ -58,16 +52,12 @@ class MovieVerticalCardWidget extends StatelessWidget {
                 ),
                 Text(
                   movie.voteAverage.toString(),
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
+                  style: textStyles.bodyMedium?.copyWith(
                     color: Colors.amber[400],
                   ),
                 ),
                 const SizedBox(width: 8),
-                Text(NumberFormat.compactCurrency(
-                  decimalDigits: 2,
-                  symbol: '',
-                ).format(movie.voteCount))
+                Text(NumberFormater.formatNumber(movie.voteCount.toDouble())),
               ],
             )
           ],
